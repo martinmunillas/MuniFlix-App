@@ -1,0 +1,26 @@
+.moviePreviewDetails {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 40px 0 40px;
+}
+
+.moviePreviewDetails_title {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+.moviePreviewDetails_description {
+    margin: 10px 0;
+}
+
+.moviePreviewDetails_details {
+    margin: 10px 0;
+    display: flex;
+}
+
+.moviePreviewDetails_details li{
+    margin: 0 10px 0 0;
+    display: flex;
+}
