@@ -1,0 +1,62 @@
+.videoPlayer_controls {
+  align-self: flex-end;
+  width: calc(100% - 20px);
+  margin: 10px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+}
+
+.videoPlayer_controls-togglePlay {
+  background: none;
+  width: 10%;
+}
+
+.videoPlayer_controls-togglePlay img {
+  height: 30px;
+}
+
+.videoPlayer_controls-seeker {
+  width: 70%;
+}
+
+.videoPlayer_controls-volume {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+}
+
+.videoPlayer_controls-volume-volume {
+  background-color: grey;
+  display: none;
+  width: 20px;
+  height: 100px;
+  writing-mode: bt-lr;
+  -webkit-appearance: slider-vertical;
+  position: absolute;
+  bottom: 70px;
+  right: 15%;
+}
+
+.videoPlayer_controls-volume-mute {
+  background: none;
+}
+
+.videoPlayer_controls-volume-mute img {
+  height: 30px;
+}
+
+.videoPlayer_controls-volume-mute:hover + .videoPlayer_controls-volume-volume,
+.videoPlayer_controls-volume-volume:hover {
+  display: inline-block;
+}
+
+.videoPlayer_controls-fullScreen {
+  width: 10%;
+  background: none;
+}
+
+.videoPlayer_controls-fullScreen img{
+  height: 30px;
+}

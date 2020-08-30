@@ -1,0 +1,15 @@
+.videoPlayer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.videoPlayer_player {
+  width: 100% !important;
+  height: 100% !important;
+  position: fixed;
+  top: 0;
+  z-index: -1;
+}
+

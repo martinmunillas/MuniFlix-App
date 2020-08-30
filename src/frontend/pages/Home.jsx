@@ -9,7 +9,7 @@ const Home = (props) => {
     <>
     <Header />
       <Carousel>
-        {props.movies.map(movie => (
+        {props.media.movies.map(movie => (
             <CarouselItem key={movie.id} {...movie} />
         ))}
       </Carousel>
@@ -19,7 +19,7 @@ const Home = (props) => {
 
 const mapStateToProps = state => {
     return {
-        movies: state.movies
+        media: state.media
     }
 }
 

@@ -1,34 +1,46 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+require('dotenv').config();
+
+const isDev = process.env.ENV === 'development';
+const entry = ['./src/frontend/index.js'];
+
+if (isDev) {
+  entry.push(
+    'webpack-hot-middleware/client?path=/webpack__hmr&timeout=2000&reload=true'
+  );
+}
 
 module.exports = {
-  entry: './src/index.js' /*referencia al archivo principal*/,
+  entry,
+  mode: process.env.ENV,
   output: {
-    /*resolve permite detectar el __dirname directorio en el que estamos y pasandole un directorio para guardar los archivos*/
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js' /* filename es el nombre del archivo final */,
+    path: path.resolve(__dirname, 'src/server/public'),
+    filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
     publicPath: '/',
-  } /*output donde se guardan los archivos resultantes cuando se haga la compilación*/,
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
-  } /*resuelve las extensiones que usarán en el proyecto*/,
+  },
   module: {
     rules: [
       {
-        /* Regla principal */
-        test: /\.(js|jsx)$/ /* Identificación de los archivos js y jsx */,
-        exclude: /node_modules/ /* Excluye la carpeta node_modules */,
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
         use: {
-          loader:
-            'babel-loader' /* Hay que usar el loader para que babel haga el trabajo */,
+          loader: 'babel-loader',
         },
       },
       {
-        /* Nueva regla */
-        test: /\.html$/ /* Identificación de los archivos html */,
+        test: /\.html$/,
         use: {
-          loader: 'html-loader' /* Loader de html */,
+          loader: 'html-loader',
         },
       },
       {
@@ -41,38 +53,31 @@ module.exports = {
           'sass-loader',
         ],
       },
-
-      {
-        test: /\.(png|gif|jpg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'assets/[hash].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-          },
-        ],
-      },
     ],
-  } /* Dicta las reglas necesarias para el proyecto */,
-  devServer: {
-    historyApiFallback: true,
- },
+  },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html' /* Donde esta ubicado el template */,
-      filename: './index.html' /* Nombre */,
-    }),
+    isDev ? new webpack.HotModuleReplacementPlugin() : () => {},
+    isDev
+      ? () => {}
+      : new CompressionWebpackPlugin({
+          test: /\.js$|\.css$/,
+          filename: '[path].gz',
+        }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].css',
+      filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css',
     }),
-  ] /* Añada los plugins que se necesitan */,
+    isDev ? () => {} : new ManifestPlugin(),
+    isDev
+      ? () => {}
+      : new CleanWebpackPlugin({
+          cleanOnceBeforeBuildPatterns: path.resolve(
+            __dirname,
+            'src/server/public'
+          ),
+        }),
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserWebpackPlugin()],
+  },
 };

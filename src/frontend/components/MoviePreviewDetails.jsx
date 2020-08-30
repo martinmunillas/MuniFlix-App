@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../assets/style/components/MoviePreviewDetails.scss';
 
@@ -16,7 +17,9 @@ const MoviePreviewDetails = ({ movie }) => {
           {movie.duration} minutes
         </li>
       </ul>
-      <button className="moviePreviewDetails_play">Play ▶</button>
+      <Link to={`/watch/${movie.id}`}>
+        <button className="moviePreviewDetails_play">Play ▶</button>
+      </Link>
     </section>
   );
 };
