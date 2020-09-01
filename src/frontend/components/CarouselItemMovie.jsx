@@ -8,7 +8,7 @@ const CarouselItem = (props) => {
 
   return (
     <div className="carousel-item">
-      <Link to={`/preview/${id}`}>
+      <Link to={`/preview/movies/${id}`}>
         <img className="carousel-item__img" src={cover} alt="" />
         <div className="carousel-item__details">
           <h3 className="carousel-item__details--title">{title}</h3>

@@ -82,7 +82,7 @@ const initialState = {
         source: 'https://mdstrm.com/video/58333e214ad055d208427db5.mp4',
       },
       {
-        id: 9,
+        id: 1,
         slug: 'tvshow-6',
         title: 'Final Space',
         type: 'Scripted',
@@ -106,6 +106,50 @@ const initialState = {
         cover: 'http://dummyimage.com/800x600.png/FF7A90/ffffff',
         description: 'Vestibulum ac est lacinia nisi venenatis tristique',
         source: 'https://mdstrm.com/video/58333e214ad055d208427db5.mp4',
+      },
+    ],
+    series: [
+      {
+        id: 1,
+        name: 'How I Met Your Mother',
+        description: 'The long story of how i met your mother',
+        startYear: 2005,
+        finalYear: 2014,
+        clasification: 16,
+        cover:
+          'https://images-na.ssl-images-amazon.com/images/I/81PLGFVI87L._AC_SY741_.jpg',
+        seasons: [
+          {
+            id: 1,
+            number: 1,
+            episodes: [
+              {
+                id: 1,
+                number: 1,
+                name: 'The Pineapple Incident',
+                description: 'What is it doing a pinneaple here',
+              },
+              {
+                id: 2,
+                number: 2,
+                name: 'The Pineapple Incident',
+                description: 'What is it doing a pinneaple here',
+              },
+              {
+                id: 3,
+                number: 3,
+                name: 'The Pineapple Incident',
+                description: 'What is it doing a pinneaple here',
+              },
+              {
+                id: 4,
+                number: 4,
+                name: 'The Pineapple Incident',
+                description: 'What is it doing a pinneaple here',
+              },
+            ],
+          },
+        ],
       },
     ],
   },

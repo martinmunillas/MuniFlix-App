@@ -1,0 +1,31 @@
+.episodePreview {
+    width: 100% ;
+    display: flex;
+    align-items: center;
+    background-color: #111111;
+    border: 1px solid #000;
+    padding: 0 20px;
+}
+
+.episodePreview_number {
+    width: 10% ;
+}
+
+.episodePreview_title {
+    width: 35% ;
+}
+
+.episodePreview_description {
+    width: 40% ;
+}
+
+.episodePreview_play {
+    width: 15%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.episodePreview_play-button {
+    width: 100%;
+    border-radius: 50px;
+}

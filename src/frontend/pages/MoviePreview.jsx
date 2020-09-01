@@ -19,7 +19,7 @@ const MoviePreview = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    movies: state.movies,
+    movies: state.media.movies,
   };
 };
 

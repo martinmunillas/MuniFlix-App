@@ -1,6 +1,8 @@
 import Home from '../pages/Home';
-import PreviewMovie from '../pages/MoviePreview';
+import MoviePreview from '../pages/MoviePreview';
+import SeriesPreview from '../pages/SeriesPreview';
 import VideoPlayer from '../pages/VideoPlayer';
+import AdminCreateMovie from '../pages/admin/AdminCreateMovie'
 
 const routes = [
   {
@@ -10,13 +12,23 @@ const routes = [
   },
   {
     exact: true,
-    path: '/preview/:movieId',
-    component: PreviewMovie,
+    path: '/preview/movies/:movieId',
+    component: MoviePreview,
+  },
+  {
+    exact: true,
+    path: '/preview/series/:seriesId',
+    component: SeriesPreview,
   },
   {
     exact: true,
     path: '/watch/:movieId',
     component: VideoPlayer,
+  },  
+  {
+    exact: true,
+    path: '/admin/create-movie',
+    component: AdminCreateMovie,
   },
 ];
 
