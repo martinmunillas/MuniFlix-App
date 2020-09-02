@@ -25,6 +25,9 @@ import apiRoutes from './apiRoutes/apiRoutes';
 dotenv.config();
 const app = express();
 
+//PARSERS
+app.use(express.json())
+
 const { PORT, ENV, URL } = process.env;
 
 if (ENV === 'development') {

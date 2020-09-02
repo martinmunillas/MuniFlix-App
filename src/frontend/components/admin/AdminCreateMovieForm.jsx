@@ -11,8 +11,6 @@ const AdminCreateMovieForm = (props) => {
       <label>Description</label>
       <textarea type='text' name='description' onChange={props.handleChange} />
 
-      <label>Language</label>
-      <input type='text' name='language' onChange={props.handleChange} />
       <div className="createNewMovie_details">
         <div>
           <label>Year</label>

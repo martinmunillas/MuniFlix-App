@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios'
 
 import AdminCreateMovieForm from '../../components/admin/AdminCreateMovieForm'
 
@@ -14,7 +15,11 @@ class AdminCreateMovie extends React.Component {
 
   handleSubmit = (e) => {
       e.preventDefault()
-      console.log(this.state.form)
+      axios({
+        method: 'post',
+        url: 'http://localhost:3000/movies',
+        data: this.state.form
+      })     
   };
 
   handleChange = (e) => {

@@ -26,7 +26,6 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   const movie = req.body;
-
   try {
     let postedMovie = await axios({
       method: 'post',
