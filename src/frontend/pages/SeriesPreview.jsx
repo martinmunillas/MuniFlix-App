@@ -8,7 +8,7 @@ import '../assets/style/pages/MoviePreview.scss'
 
 const SeriesPreview = (props) => {
   const { seriesId } = props.match.params;
-  const serie = props.series.filter((serie) => serie.id == seriesId)[0];
+  const serie = props.series.filter((serie) => serie._id == seriesId)[0];
   return (
     <div className="moviePreview">
       <SeriesPreviewDetails serie={serie} />

@@ -12,7 +12,7 @@ class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
     const { movieId } = this.props.match.params;
-    this.movie = this.props.movies.filter((movie) => movie.id == movieId)[0];
+    this.movie = this.props.movies.filter((movie) => movie._id == movieId)[0];
     this.state = {
       playing: false,
       played: 0,

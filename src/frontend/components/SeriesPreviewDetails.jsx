@@ -20,7 +20,7 @@ const SeriesPreviewDetails = ({ serie }) => {
       </ul>
       <div className='seasons'>
         {serie.seasons.map((season) => (
-          <SeasonPreview season={season} key={season.id} />
+          <SeasonPreview season={season} key={season._id} />
         ))}
       </div>
     </section>

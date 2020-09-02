@@ -10,7 +10,7 @@ const SeasonPreview = ({ season }) => {
           <h1 className="seasonPreview_number">Season {season.number}</h1>
           <div className="seasonPreview_episodes">
               {season.episodes.map(episode => (
-                  <EpisodePreview episode={episode} seasonNumber={season.number} key={episode.id} />
+                  <EpisodePreview episode={episode} seasonNumber={season.number} key={episode._id} />
               ))}
           </div>
       </div>

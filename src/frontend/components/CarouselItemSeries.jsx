@@ -5,7 +5,7 @@ import '../assets/style/components/CarouselItem.scss';
 
 const CarouselItem = (props) => {
   const {
-    id,
+    _id,
     name,
     year,
     clasification,
@@ -17,7 +17,7 @@ const CarouselItem = (props) => {
 
   return (
     <div className='carousel-item'>
-      <Link to={`/preview/series/${id}`}>
+      <Link to={`/preview/series/${_id}`}>
         <img className='carousel-item__img' src={cover} alt='' />
         <div className='carousel-item__details'>
           <h3 className='carousel-item__details--title'>{name}</h3>

@@ -17,7 +17,7 @@ const MoviePreviewDetails = ({ movie }) => {
           {movie.duration} minutes
         </li>
       </ul>
-      <Link to={`/watch/${movie.id}`}>
+      <Link to={`/watch/${movie._id}`}>
         <button className="moviePreviewDetails_play">Play ▶</button>
       </Link>
     </section>

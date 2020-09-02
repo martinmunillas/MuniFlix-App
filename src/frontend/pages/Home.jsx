@@ -6,21 +6,24 @@ import CarouselItemSeries from '../components/CarouselItemSeries';
 import Header from '../components/Header';
 
 const Home = (props) => {
+  const { movies, series } = props.media;
   return (
     <>
       <Header />
-
-      <Carousel name="Movies">
-        {props.media.movies.map((movie) => (
-          <CarouselItemMovie key={movie.id} {...movie} />
-        ))}
-      </Carousel>
-
-      <Carousel name="Series">
-        {props.media.series.map((serie) => (
-          <CarouselItemSeries key={serie.id} {...serie} />
-        ))}
-      </Carousel>
+      {movies.length > 0 && (
+        <Carousel name='Movies'>
+          {movies.map((movie) => (
+            <CarouselItemMovie key={movie._id} {...movie} />
+          ))}
+        </Carousel>
+      )}
+      {series.length > 0 && (
+        <Carousel name='Series'>
+          {series.map((serie) => (
+            <CarouselItemSeries key={serie._id} {...serie} />
+          ))}
+        </Carousel>
+      )}
     </>
   );
 };
