@@ -1,0 +1,18 @@
+@import '../../Vars.scss';
+
+.createNewSeries {
+  display: flex;
+  flex-direction: column;
+  width: $forms_width;
+}
+
+.createNewSeries_details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.createNewSeries_details div {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 3 - 10px);
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../../assets/style/components/AdminCreateMovieForm.scss';
+import '../../assets/style/components/admin/AdminCreateMovieForm.scss';
 
 const AdminCreateMovieForm = (props) => {
   return (
@@ -11,7 +11,7 @@ const AdminCreateMovieForm = (props) => {
       <label>Description</label>
       <textarea type='text' name='description' onChange={props.handleChange} />
 
-      <div className="createNewMovie_details">
+      <div className='createNewMovie_details'>
         <div>
           <label>Year</label>
           <input type='text' name='year' onChange={props.handleChange} />
@@ -38,7 +38,7 @@ const AdminCreateMovieForm = (props) => {
       <label>Video Url</label>
       <input type='text' name='src' onChange={props.handleChange} />
 
-      <button type="submit">Publish</button>
+      <button type='submit'>Publish</button>
     </form>
   );
 };

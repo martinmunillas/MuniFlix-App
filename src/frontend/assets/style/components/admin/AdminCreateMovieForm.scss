@@ -1,0 +1,18 @@
+@import '../../Vars.scss';
+
+.createNewMovie {
+  display: flex;
+  flex-direction: column;
+  width: $forms_width;
+}
+
+.createNewMovie_details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.createNewMovie_details div{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 3 - 10px);
+}

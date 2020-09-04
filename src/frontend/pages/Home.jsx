@@ -13,7 +13,7 @@ const Home = (props) => {
       {movies.length > 0 && (
         <Carousel name='Movies'>
           {movies.map((movie) => (
-            <CarouselItemMovie key={movie._id} {...movie} />
+            <CarouselItemMovie key={movie._id} movie={movie} />
           ))}
         </Carousel>
       )}

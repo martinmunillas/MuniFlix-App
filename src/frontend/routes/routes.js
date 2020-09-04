@@ -2,7 +2,9 @@ import Home from '../pages/Home';
 import MoviePreview from '../pages/MoviePreview';
 import SeriesPreview from '../pages/SeriesPreview';
 import VideoPlayer from '../pages/VideoPlayer';
-import AdminCreateMovie from '../pages/admin/AdminCreateMovie'
+import AdminMovies from '../pages/admin/AdminMovies';
+import AdminSeries from '../pages/admin/AdminSeries';
+import AdminHome from '../pages/admin/AdminHome';
 
 const routes = [
   {
@@ -24,12 +26,25 @@ const routes = [
     exact: true,
     path: '/watch/:movieId',
     component: VideoPlayer,
-  },  
+  },
   {
     exact: true,
-    path: '/admin/create-movie',
-    component: AdminCreateMovie,
+    path: '/admin',
+    component: AdminHome,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/movies',
+    component: AdminMovies,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/series',
+    component: AdminSeries,
+    adminRoute: true,
   },
 ];
 
-export default routes
+export default routes;

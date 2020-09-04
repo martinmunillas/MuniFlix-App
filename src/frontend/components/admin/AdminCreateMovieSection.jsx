@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import AdminCreateMovieForm from '../../components/admin/AdminCreateMovieForm'
 
-import '../../assets/style/pages/AdminCreateMovie.scss';
+import '../../assets/style/pages/admin/AdminCreateMovie.scss';
 
 class AdminCreateMovie extends React.Component {
   constructor(props) {
