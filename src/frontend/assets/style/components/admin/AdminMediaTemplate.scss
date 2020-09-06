@@ -1,0 +1,25 @@
+.adminMedia_hero {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.adminMedia_tab {
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+    background-color: #222;
+    padding: 5px 10px;
+    height: 40px;
+}
+
+.adminMedia_tabSelected {
+    background-color: #444
+}
+
+.adminMedia_section {
+    background-color: #444;
+    padding: 40px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}

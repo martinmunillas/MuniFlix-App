@@ -11,8 +11,8 @@ import '../assets/style/pages/VideoPlayer.scss';
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
-    const { movieId } = this.props.match.params;
-    this.movie = this.props.movies.filter((movie) => movie._id == movieId)[0];
+    const { id } = this.props.match.params;
+    this.media = this.props.media.filter((media) => media._id == id)[0];
     this.state = {
       playing: false,
       played: 0,
@@ -93,8 +93,8 @@ class VideoPlayer extends React.Component {
   render() {
     const { playing, played, volume, duration, isFullScreen } = this.state;
     return (
-      <div className="videoPlayer" ref={this.container}>
-        <h1>{this.movie.title}</h1>
+      <div className='videoPlayer' ref={this.container}>
+        <h1>{this.media.name}</h1>
         <VideoControls
           {...this.state}
           handler={{
@@ -107,8 +107,8 @@ class VideoPlayer extends React.Component {
         />
         <ReactPlayer
           ref={this.video}
-          className="videoPlayer_player"
-          url="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+          className='videoPlayer_player'
+          url={this.media.src}
           playing={playing}
           pip={false}
           volume={volume}
@@ -120,8 +120,14 @@ class VideoPlayer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+  const series = [];
+  state.media.series.forEach((serie) =>
+    serie.seasons.forEach((season) =>
+      season.episodes.forEach((episode) => series.push(episode))
+    )
+  );
   return {
-    movies: state.media.movies,
+    media: state.media.movies.concat(series),
   };
 };
 

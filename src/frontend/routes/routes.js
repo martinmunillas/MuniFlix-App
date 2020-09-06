@@ -1,9 +1,11 @@
+import React from 'react'
+
 import Home from '../pages/Home';
 import MoviePreview from '../pages/MoviePreview';
 import SeriesPreview from '../pages/SeriesPreview';
 import VideoPlayer from '../pages/VideoPlayer';
-import AdminMovies from '../pages/admin/AdminMovies';
 import AdminSeries from '../pages/admin/AdminSeries';
+import AdminMovies from '../pages/admin/AdminMovies';
 import AdminHome from '../pages/admin/AdminHome';
 
 const routes = [
@@ -24,7 +26,7 @@ const routes = [
   },
   {
     exact: true,
-    path: '/watch/:movieId',
+    path: '/watch/:id',
     component: VideoPlayer,
   },
   {

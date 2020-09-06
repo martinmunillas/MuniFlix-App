@@ -14,17 +14,19 @@
 
 .seasonPreview{display:flex;flex-direction:column;border-radius:20px;background-color:#2e2e2e;padding:30px;margin:20px 0}.seasonPreview_number{margin-bottom:10px}
 
-.videoPlayer_controls{align-self:flex-end;width:calc(100% - 20px);margin:10px;border-radius:20px;background-color:rgba(0,0,0,0.7);display:flex;justify-content:space-between}.videoPlayer_controls-togglePlay{background:none;width:10%}.videoPlayer_controls-togglePlay img{height:30px}.videoPlayer_controls-seeker{width:70%}.videoPlayer_controls-volume{width:10%;display:flex;justify-content:center}.videoPlayer_controls-volume-volume{background-color:grey;display:none;width:20px;height:100px;writing-mode:bt-lr;-webkit-appearance:slider-vertical;position:absolute;bottom:70px;right:15%}.videoPlayer_controls-volume-mute{background:none}.videoPlayer_controls-volume-mute img{height:30px}.videoPlayer_controls-volume-mute:hover+.videoPlayer_controls-volume-volume,.videoPlayer_controls-volume-volume:hover{display:inline-block}.videoPlayer_controls-fullScreen{width:10%;background:none}.videoPlayer_controls-fullScreen img{height:30px}
+.videoPlayer_controls{align-self:flex-end;width:calc(100% - 20px);margin:10px;border-radius:20px;background-color:rgba(0,0,0,0.7);display:flex;justify-content:space-between;align-items:center}.videoPlayer_controls-togglePlay{background:none;width:10%}.videoPlayer_controls-togglePlay img{height:30px}.videoPlayer_controls-seeker{width:70%;padding:0;margin:0;border:0}.videoPlayer_controls-volume{width:10%;display:flex;justify-content:center}.videoPlayer_controls-volume-volume{background-color:grey;display:none;width:20px;height:100px;writing-mode:bt-lr;-webkit-appearance:slider-vertical;position:absolute;bottom:70px;right:15%}.videoPlayer_controls-volume-mute{background:none}.videoPlayer_controls-volume-mute img{height:30px}.videoPlayer_controls-volume-mute:hover+.videoPlayer_controls-volume-volume,.videoPlayer_controls-volume-volume:hover{display:inline-block}.videoPlayer_controls-fullScreen{width:10%;background:none}.videoPlayer_controls-fullScreen img{height:30px}
 
 .videoPlayer{display:flex;flex-direction:column;justify-content:space-between;height:100vh}.videoPlayer_player{width:100% !important;height:100% !important;position:fixed;top:0;z-index:-1}
 
-.createNewMovie{display:flex;flex-direction:column;width:500px}.createNewMovie_details{display:flex;justify-content:space-between}.createNewMovie_details div{display:flex;flex-direction:column;width:calc(100% / 3 - 10px)}
+.adminMedia_hero{padding:50px 0;display:flex;justify-content:center}.adminMedia_tab{margin:0;border-radius:10px 10px 0 0;background-color:#222;padding:5px 10px;height:40px}.adminMedia_tabSelected{background-color:#444}.adminMedia_section{background-color:#444;padding:40px;margin:0;display:flex;justify-content:center}
 
-.adminCreateMovie{display:flex;flex-direction:column;align-items:center}.adminCreateMovie_title{margin:30px 0}
+.createNewSeries{display:flex;flex-direction:column;width:500px}.createNewSeries_details{display:flex;justify-content:space-between}.createNewSeries_details div{display:flex;flex-direction:column;width:calc(100% / 3 - 10px)}
+
+.createNewMovie{display:flex;flex-direction:column;width:500px}.createNewMovie_details{display:flex;justify-content:space-between}.createNewMovie_details div{display:flex;flex-direction:column;width:calc(100% / 3 - 10px)}
 
 .adminMenu{width:250px;height:100vh;position:fixed;left:0;background-color:#a0060d;border-radius:0 20px 20px 0;display:flex;flex-direction:column;justify-content:center;padding:30px}.adminMenu_item{padding:20px;font-weight:600}
 
-.adminLayout_content{margin-left:250px}
+.adminLayout_content{padding-left:250px}
 
 *{margin:0;padding:0;box-sizing:border-box;list-style:none;outline:none;text-decoration:none;color:#ffffff}body{background:#4a4a4a;background:linear-gradient(180deg, #333 0%, #1b1b1b 100%);font-family:Arial, Helvetica, sans-serif;color:#ffffff;min-height:100vh}button{background-color:#e50913;border:none;border-radius:50px;color:white;cursor:pointer;font-size:16px;font-weight:bold;font-family:'Muli', sans-serif;height:70px;letter-spacing:1px;margin:20px 0px;padding:10px}::-webkit-scrollbar{width:0px;background:transparent}::-webkit-scrollbar-thumb{background:#e50913;border-radius:10px}input{margin:10px 0;height:50px;border-radius:50px;border:2px solid #ffffff;background-color:#222222;color:#ffffff;padding:20px}textarea{margin:10px 0;height:200px;border-radius:20px 20px 0px 20px;border:2px solid #ffffff;background-color:#222222;color:#ffffff;padding:20px}.unselected{background-color:#a0060d}
 

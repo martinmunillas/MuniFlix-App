@@ -1,56 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
-import AdminCreateMovieSection from '../../components/admin/AdminCreateMovieSection';
+import AdminMediaTemplate from '../../components/admin/AdminMediaTemplate';
+import AdminCreateMovieForm from '../../components/admin/AdminCreateMovieForm';
 
-class AdminMovies extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      activeTab: 'moviesList',
-    };
-  }
+const AdminMovies = (props) => {
+  return (
+    <AdminMediaTemplate
+      media={props.movies}
+      mediaPath='/movies'
+      form={<AdminCreateMovieForm/>}
+      name="Movies"
+    />
+  );
+};
 
-  handleChangeSection = (e) => {
-    this.setState({
-      ...this.state,
-      activeTab: e.target.name,
-    });
-  };
-
-  render() {
-    const { activeTab } = this.state;
-    return (
-      <>
-        <div className='adminMovies_hero'>
-          <h1>Movies</h1>
-        </div>
-        <div className='adminMovies_buttons'>
-          <button
-            name='moviesList'
-            className={`adminMovies_tab ${
-              activeTab !== 'moviesList' && 'unselected'
-            }`}
-            onClick={this.handleChangeSection}
-          >
-            Movies List
-          </button>
-          <button
-            name='createMovie'
-            className={`adminMovies_tab ${
-              activeTab !== 'createMovie' && 'unselected'
-            }`}
-            onClick={this.handleChangeSection}
-          >
-            Create Movie
-          </button>
-        </div>
-        <div>
-          {activeTab === 'createMovie' && <AdminCreateMovieSection />}
-          {activeTab === 'moviesList' && <h1>Movies List</h1>}
-        </div>
-      </>
-    );
+const mapStateToProps = state => {
+  return {
+    movies: state.media.movies
   }
 }
 
-export default AdminMovies;
+export default connect(mapStateToProps, null)(AdminMovies)

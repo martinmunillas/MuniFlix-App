@@ -6,15 +6,16 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter, Route } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import helmet from 'helmet';
-import axios from 'axios'
+import axios from 'axios';
 
 //frontend
 import App from '../frontend/routes/App';
 import reducer from '../frontend/redux/reducers';
 import routes from '../frontend/routes/routes';
+import AdminRoute from '../frontend/components/admin/AdminRoute';
 
 //utils
 import getManifest from './utils/middlewares/getManifest';
@@ -26,7 +27,7 @@ dotenv.config();
 const app = express();
 
 //PARSERS
-app.use(express.json())
+app.use(express.json());
 
 const { PORT, ENV, URL } = process.env;
 
@@ -79,28 +80,28 @@ const renderApp = async (req, res) => {
     let movies = await axios({
       method: 'get',
       url: `${URL}${PORT}/movies`,
-    })
+    });
 
     let series = await axios({
       method: 'get',
-      url: `${URL}${PORT}/series`
-    })
+      url: `${URL}${PORT}/series`,
+    });
 
-    movies = movies.data
-    series = series.data
+    movies = movies.data;
+    series = series.data;
 
     initialState = {
       media: {
         movies,
-        series
+        series,
       },
     };
   } catch (error) {
-    console.log(error)
+    console.log(error);
     initialState = {
       media: {
         movies: [],
-        series: []
+        series: [],
       },
     };
   }
@@ -109,7 +110,13 @@ const renderApp = async (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-        {renderRoutes(routes)}
+        {routes.map((route) =>
+          !route.adminRoute ? (
+            <Route {...route} key={route.path} />
+          ) : (
+            <AdminRoute {...route} key={route.path} />
+          )
+        )}
       </StaticRouter>
     </Provider>
   );

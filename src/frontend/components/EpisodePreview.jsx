@@ -14,7 +14,7 @@ const EpisodePreview = (props) => {
           ? episode.description
           : episode.description.substring(0, 20) + '...'}
       </p>
-      <Link className='episodePreview_play' to={`/watch/${episode.id}`}>
+      <Link className='episodePreview_play' to={`/watch/${episode._id}`}>
         <button className='episodePreview_play-button'>Play ▶</button>
       </Link>
     </div>
