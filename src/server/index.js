@@ -1,6 +1,6 @@
-require('ignore-styles')
+require('ignore-styles');
 
-require('@babel/polyfill')
+require('@babel/polyfill');
 require('@babel/register')({
   presets: ['@babel/preset-env', '@babel/preset-react'],
   plugins: ['@babel/plugin-proposal-class-properties'],
@@ -8,7 +8,7 @@ require('@babel/register')({
 
 require('asset-require-hook')({
   extensions: ['jpg', 'png', 'gif'],
-  name: '/assets/[hash].[ext]'
-})
+  name: '/assets/[hash].[ext]',
+});
 
-require('./server')
+require('./server');

@@ -10,7 +10,7 @@ const App = () => {
       <Switch>
         {routes.map((route) =>
           !route.adminRoute ? (
-            <Route {...route} key={route.path} />
+            <Route {...route} key={route.path || 404} />
           ) : (
             <AdminRoute {...route} key={route.path} />
           )

@@ -10,7 +10,7 @@ const MoviePreviewDetails = ({ movie }) => {
       <p className="moviePreviewDetails_description">{movie.description}</p>
       <ul className="moviePreviewDetails_details">
         <li className="moviePreviewDetails_details-clasification">
-          +{movie.clasification}
+          {movie.clasification != 0 ? '+' + movie.clasification : 'All Ages'}
         </li>
         <li className="moviePreviewDetails_details-year">{movie.year}</li>
         <li className="moviePreviewDetails_details-duration">

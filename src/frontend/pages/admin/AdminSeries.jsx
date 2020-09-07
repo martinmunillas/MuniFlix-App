@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux'
 
 import AdminMediaTemplate from '../../components/admin/AdminMediaTemplate';
-import AdminCreateSeriesForm from '../../components/admin/AdminCreateSeriesForm';
+import AdminSeriesForm from '../../components/admin/AdminSeriesForm';
 
 const AdminSeries = (props) => {
   return (
     <AdminMediaTemplate
       media={props.series}
       mediaPath='/series'
-      form={<AdminCreateSeriesForm/>}
+      form={<AdminSeriesForm/>}
       name="Series"
     />
   );

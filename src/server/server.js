@@ -7,7 +7,6 @@ import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { StaticRouter, Route } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
 import helmet from 'helmet';
 import axios from 'axios';
 
@@ -112,7 +111,7 @@ const renderApp = async (req, res) => {
       <StaticRouter location={req.url} context={{}}>
         {routes.map((route) =>
           !route.adminRoute ? (
-            <Route {...route} key={route.path} />
+            <Route {...route} key={route.path || 404} />
           ) : (
             <AdminRoute {...route} key={route.path} />
           )
