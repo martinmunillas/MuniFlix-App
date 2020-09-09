@@ -10,6 +10,10 @@ import AdminHome from '../pages/admin/AdminHome';
 import AdminMovieDetails from '../pages/admin/AdminMovieDetails';
 import AdminSeriesDetails from '../pages/admin/AdminSeriesDetails';
 import AdminEditMovie from '../pages/admin/AdminEditMovie';
+import AdminEditSeries from '../pages/admin/AdminEditSeries';
+import AdminAddEpisodes from '../pages/admin/AdminAddEpisodes';
+import AdminEditEpisode from '../pages/admin/AdminEditEpisode';
+import AdminEpisodeDetails from '../pages/admin/AdminEpisodeDetails';
 import NotFound from '../pages/NotFound';
 
 const routes = [
@@ -67,6 +71,30 @@ const routes = [
     exact: true,
     path: '/admin/movies/:movieId/edit',
     component: AdminEditMovie,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/series/:serieId/edit',
+    component: AdminEditSeries,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/series/:serieId/seasons/:seasonId/episode/add',
+    component: AdminAddEpisodes,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/series/:serieId/episode/:episodeId',
+    component: AdminEpisodeDetails,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/series/:serieId/episode/:episodeId/edit',
+    component: AdminEditEpisode,
     adminRoute: true,
   },
   {

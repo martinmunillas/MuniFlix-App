@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios'
+import axios from 'axios';
 
 const AdminMovieDetails = (props) => {
   const { movieId } = props.match.params;
@@ -11,9 +11,9 @@ const AdminMovieDetails = (props) => {
   const handleDelete = () => {
     axios({
       method: 'delete',
-      url: `http://localhost:3000/movies/${_id}`
-    })
-  }
+      url: `http://localhost:3000/movies/${_id}`,
+    });
+  };
 
   return (
     <div className='adminMovieDetails'>
@@ -27,7 +27,7 @@ const AdminMovieDetails = (props) => {
         <Link to={`/admin/movies/${_id}/edit`}>Edit</Link>
       </button>
 
-      <button onClick={handleDelete} >Delete</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const response = {
     res
       .status(status || 500)
       .send(message || 'There was an error, please try again in a few minutes');
-    console.log(error)
+    console.log(error.message)
   },
 };
 

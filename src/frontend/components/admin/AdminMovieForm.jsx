@@ -16,8 +16,6 @@ class AdminCreateMovieForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const errors = validateMovieForm(this);
-    console.log(!Object.values(errors).some((error) => !!error))
-    console.log(errors);
 
     if (!Object.values(errors).some((error) => !!error)) {
       this.props.handleSubmit(this.state.form);
