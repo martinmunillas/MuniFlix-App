@@ -6,6 +6,12 @@
     margin: 0 40px 0 40px;
 }
 
+.moviePreviewDetails_goHome {
+    width: 20%;
+    border-radius: 20px;
+    height: 50px;
+}
+
 .moviePreviewDetails_title {
     font-size: 50px;
     margin: 10px 0;
@@ -26,5 +32,7 @@
 }
 
 .moviePreviewDetails_play {
-    width: 100%;
+    width: 20%;
+    border: 3px solid white;
+    background-color: transparent;
 }

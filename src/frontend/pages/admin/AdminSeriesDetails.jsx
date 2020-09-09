@@ -5,6 +5,8 @@ import axios from 'axios';
 
 import AdminSeasons from '../../components/admin/AdminSeasons';
 
+import '../../assets/style/pages/admin/AdminSeriesDetails.scss';
+
 const AdminSeriesDetails = (props) => {
   const { serieId } = props.match.params;
   const serie = props.series.find((serie) => serie._id == serieId);
@@ -35,20 +37,24 @@ const AdminSeriesDetails = (props) => {
   };
 
   return (
-    <div className='adminMediaDetails'>
-      <img src={cover} alt={name} />
-      <h1>{name}</h1>
-      <p>
-        {startYear} - {finalYear}
-      </p>
-      <p>{description}</p>
-      <p>{cast}</p>
-      <button>
-        <Link to={`/admin/series/${_id}/edit`}>Edit</Link>
-      </button>
+    <div className='adminSeriesDetails'>
+      <div className='adminSeriesDetails_serie'>
+        <img src={cover} alt={name} />
+        <div className='adminSeriesDetails_serie-info'>
+          <h1>{name}</h1>
+          <p>
+            {startYear} - {finalYear}
+          </p>
+          <p>{description}</p>
+          <p>{cast}</p>
+          <button className='button2'>
+            <Link to={`/admin/series/${_id}/edit`}>Edit</Link>
+          </button>
 
-      <button onClick={handleDelete}>Delete</button>
-      <div>
+          <button onClick={handleDelete}>Delete</button>
+        </div>
+      </div>
+      <div className='adminSeriesDetails_seasons'>
         {seasons.map((season) => (
           <AdminSeasons season={season} serieId={_id} key={season.number} />
         ))}

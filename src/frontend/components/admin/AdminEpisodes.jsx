@@ -1,17 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+import '../../assets/style/components/admin/AdminEpisodes.scss';
 
 const AdminEpisodes = ({ episode, seasonNumber, serieId }) => {
   return (
-    <div>
-      <Link to={`/admin/series/${serieId}/episode/${episode._id}`}>
-        <h1>
+    <Link to={`/admin/series/${serieId}/episode/${episode._id}`}>
+      <div className='adminEpisodes'>
+        <h2>
           S{seasonNumber}E{episode.number}
-        </h1>
+        </h2>
         <h2>{episode.name}</h2>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
-export default AdminEpisodes
+export default AdminEpisodes;

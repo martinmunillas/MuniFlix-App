@@ -5,6 +5,18 @@
   height: 100vh;
 }
 
+.videoPlayer_goBack {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.videoPlayer_name {
+  margin: 50px;
+}
+
 .videoPlayer_player {
   width: 100% !important;
   height: 100% !important;

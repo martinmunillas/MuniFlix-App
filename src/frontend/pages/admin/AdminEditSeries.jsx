@@ -7,7 +7,7 @@ import AdminSeriesForm from '../../components/admin/AdminSeriesForm';
 const AdminEditSeries = (props) => {
   const { serieId } = props.match.params;
   const serie = props.series.find((serie) => serie._id === serieId);
-  
+
   const handleSubmit = (data) => {
     try {
       axios({
@@ -20,7 +20,12 @@ const AdminEditSeries = (props) => {
     }
   };
 
-  return <AdminSeriesForm handleSubmit={handleSubmit} formValues={serie} />;
+  return (
+    <div className="safeContainer">
+      <h1 className="mV">Edit "{serie.name}"</h1>
+      <AdminSeriesForm handleSubmit={handleSubmit} formValues={serie} />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

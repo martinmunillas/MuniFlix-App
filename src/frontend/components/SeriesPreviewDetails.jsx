@@ -8,6 +8,9 @@ import '../assets/style/components/MoviePreviewDetails.scss';
 const SeriesPreviewDetails = ({ serie }) => {
   return (
     <section className='moviePreviewDetails'>
+      <Link to='/'>
+        <button className='moviePreviewDetails_goHome'>⬅ Go Home</button>
+      </Link>
       <h1 className='moviePreviewDetails_title'>{serie.name}</h1>
       <p className='moviePreviewDetails_description'>{serie.description}</p>
       <ul className='moviePreviewDetails_details'>

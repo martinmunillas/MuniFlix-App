@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 import AdminEpisodesForm from '../../components/admin/AdminEpisodesForm';
 
@@ -10,11 +10,16 @@ const AdminAddEpisodes = (props) => {
     axios({
       method: 'post',
       url: `http://localhost:3000/series/episodes`,
-      data: {...data, season: seasonId},
+      data: { ...data, season: seasonId },
     });
   };
 
-  return <AdminEpisodesForm handleSubmit={handleSubmit} formValues={{}} />;
+  return (
+    <div className="safeContainer">
+      <h1 className="mV">Add Episode</h1>
+      <AdminEpisodesForm handleSubmit={handleSubmit} formValues={{}} />
+    </div>
+  );
 };
 
 export default AdminAddEpisodes;

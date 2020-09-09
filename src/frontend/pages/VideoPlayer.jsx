@@ -24,6 +24,10 @@ class VideoPlayer extends React.Component {
     this.intervalID = 0;
   }
 
+  handleGoBack = () => {
+    this.props.history.goBack();
+  };
+
   handleSeek = (e) => {
     this.video.current.seekTo(e.target.value, 'fraction');
     this.setState({
@@ -94,7 +98,10 @@ class VideoPlayer extends React.Component {
     const { playing, played, volume, duration, isFullScreen } = this.state;
     return (
       <div className='videoPlayer' ref={this.container}>
-        <h1>{this.media.name}</h1>
+        <p onClick={this.handleGoBack} className='videoPlayer_goBack'>
+          ⬅ Go Home
+        </p>
+        <h1 className='videoPlayer_name'>{this.media.name}</h1>
         <VideoControls
           {...this.state}
           handler={{

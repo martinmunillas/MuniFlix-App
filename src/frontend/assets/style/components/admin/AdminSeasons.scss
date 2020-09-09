@@ -1,0 +1,16 @@
+.adminSeasons {
+    background: #111111;
+    margin: 40px 0;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.adminSeasons_header {
+    display: flex; 
+    justify-content: space-between;
+}
+
+.adminSeasons_header-buttons button{
+    margin: 0 20px;
+    height: 40px
+}

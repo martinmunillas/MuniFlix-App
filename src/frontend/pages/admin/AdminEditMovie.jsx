@@ -19,7 +19,12 @@ const AdminEditMovie = (props) => {
     }
   };
 
-  return <AdminMovieForm handleSubmit={handleSubmit} formValues={movie} />;
+  return (
+    <div className='safeContainer'>
+      <h1 className='mV'>Edit "{movie.name}"</h1>
+      <AdminMovieForm handleSubmit={handleSubmit} formValues={movie} />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

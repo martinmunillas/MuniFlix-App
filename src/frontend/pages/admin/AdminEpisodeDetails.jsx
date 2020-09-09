@@ -26,15 +26,17 @@ const AdminEpisodeDetails = (props) => {
   return (
     <div className='adminMovieDetails'>
       <img src={serie.cover} alt={name} />
-      <h1>
-        S{seasonNumber}E{number} {name}
-      </h1>
-      <p>{description}</p>
-      <button>
-        <Link to={`/admin/series/${serie._id}/episode/${_id}/edit`}>Edit</Link>
-      </button>
+      <div>
+        <h1>
+          S{seasonNumber}E{number} {name}
+        </h1>
+        <p>{description}</p>
+        <Link to={`/admin/series/${serie._id}/episode/${_id}/edit`}>
+          <button className='button2'>Edit</button>
+        </Link>
 
-      <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
+      </div>
     </div>
   );
 };

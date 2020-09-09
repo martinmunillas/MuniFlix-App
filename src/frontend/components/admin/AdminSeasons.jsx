@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import '../../assets/style/components/admin/AdminSeasons.scss';
+
 import AdminEpisodes from './AdminEpisodes';
 
 const AdminSeasons = ({ season, serieId }) => {
@@ -12,13 +14,19 @@ const AdminSeasons = ({ season, serieId }) => {
     });
   };
   return (
-    <div>
-      <h1>Season {season.number}</h1>
-      <button onClick={handleDeleteSeason}>Delete Season</button>
-      <button>
-        <Link to={`/admin/series/${serieId}/seasons/${season._id}/episode/add`}>Add Episode</Link>
-      </button>
-      <div>
+    <div className='adminSeasons'>
+      <div className='adminSeasons_header'>
+        <h1>Season {season.number}</h1>
+        <div className='adminSeasons_header-buttons'>
+          <Link
+            to={`/admin/series/${serieId}/seasons/${season._id}/episode/add`}
+          >
+            <button className='button2'>Add Episode</button>
+          </Link>
+          <button onClick={handleDeleteSeason}>Delete Season</button>
+        </div>
+      </div>
+      <div className='adminSeasons_episodes'>
         {season.episodes.map((episode) => (
           <AdminEpisodes
             episode={episode}

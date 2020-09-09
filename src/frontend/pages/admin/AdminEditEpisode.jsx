@@ -11,7 +11,7 @@ const AdminEditEpisode = (props) => {
   serie.seasons.forEach((season) =>
     season.episodes.forEach((episode) => episodes.push(episode))
   );
-  const episode = episodes.find(episode => episode._id === episodeId)
+  const episode = episodes.find((episode) => episode._id === episodeId);
 
   const handleSubmit = (data) => {
     try {
@@ -25,7 +25,14 @@ const AdminEditEpisode = (props) => {
     }
   };
 
-  return <AdminEpisodesForm handleSubmit={handleSubmit} formValues={episode} />;
+  return (
+    <div className='safeContainer'>
+      <h1 className='mV'>
+        Edit "{episode.name}" of {serie.name}
+      </h1>
+      <AdminEpisodesForm handleSubmit={handleSubmit} formValues={episode} />
+    </div>
+  );
 };
 
 const mapStateToProps = (state) => {

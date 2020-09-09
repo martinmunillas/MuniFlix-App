@@ -1,0 +1,24 @@
+.adminMovieDetails {
+    display: flex;
+    padding: 40px;
+}
+
+.adminMovieDetails img {
+    width: 30%;
+}
+
+.adminMovieDetails div {
+    width: 80%;
+    margin-left: 30px;
+}
+
+.adminMovieDetails div p{
+    width: 70%;
+    margin: 10px 0;
+}
+
+.adminMovieDetails div button{
+    height: 40px;
+    border-radius: 10px;   
+    margin-right: 20px; 
+}
