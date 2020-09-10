@@ -81,6 +81,10 @@ class VideoPlayer extends React.Component {
     }
   };
 
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
   handleFullScreen = (e) => {
     toggleFullScreen(this.container.current);
     this.setState({
