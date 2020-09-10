@@ -2,16 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import { addMovie } from '../../redux/actions';
+
 import AdminMediaTemplate from '../../components/admin/AdminMediaTemplate';
 import AdminMovieForm from '../../components/admin/AdminMovieForm';
 
 const AdminMovies = (props) => {
   const handleSubmit = (data) => {
-    axios({
-      method: 'post',
-      url: 'http://localhost:3000/movies',
-      data,
-    });
+    props.addMovie(data);
+    props.history.push('/admin')
   };
 
   return (
@@ -45,4 +44,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminMovies);
+const mapDispatchToProps = { addMovie };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminMovies);

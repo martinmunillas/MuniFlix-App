@@ -4,9 +4,9 @@
 
 .header-space{height:100px}.header{width:100%;height:100px;background-color:#050505;display:flex;justify-content:space-between;align-items:center;padding:10px 20px;position:fixed;z-index:2;top:0}.logo{width:150px}.menu{display:flex}.menu li{list-style:none;margin:0 10px}
 
-.moviePreviewDetails{width:50%;display:flex;flex-direction:column;justify-content:center;margin:0 40px 0 40px}.moviePreviewDetails_goHome{width:20%;border-radius:20px;height:50px}.moviePreviewDetails_title{font-size:50px;margin:10px 0}.moviePreviewDetails_description{margin:10px 0}.moviePreviewDetails_details{margin:10px 0;display:flex}.moviePreviewDetails_details li{margin:0 10px 0 0;display:flex}.moviePreviewDetails_play{width:20%;border:3px solid white;background-color:transparent}
+.moviePreviewDetails{width:50%;display:flex;flex-direction:column;justify-content:center;margin:0 40px 0 40px;min-height:100vh}.moviePreviewDetails_goHome{width:20%;border-radius:20px;height:50px}.moviePreviewDetails_title{font-size:50px;margin:10px 0}.moviePreviewDetails_description{margin:10px 0}.moviePreviewDetails_details{margin:10px 0;display:flex}.moviePreviewDetails_details li{margin:0 10px 0 0;display:flex}.moviePreviewDetails_play{width:20%;border:3px solid white;background-color:transparent}
 
-.moviePreviewImage{width:50%;height:100vh;display:flex;justify-content:flex-end;overflow:hidden}.moviePreviewImage img{height:100%}
+.moviePreviewImage{width:50%;height:100vh;display:flex;justify-content:flex-end;overflow:hidden;position:fixed;right:0}.moviePreviewImage img{height:100%}
 
 .moviePreview{display:flex}
 
@@ -14,7 +14,7 @@
 
 .seasonPreview{display:flex;flex-direction:column;border-radius:20px;background-color:#2e2e2e;padding:30px;margin:20px 0}.seasonPreview_number{margin-bottom:10px}
 
-.videoPlayer_controls{align-self:flex-end;width:calc(100% - 20px);margin:10px;border-radius:20px;background-color:rgba(0,0,0,0.7);display:flex;justify-content:space-between;align-items:center}.videoPlayer_controls-togglePlay{background:none;width:10%}.videoPlayer_controls-togglePlay img{height:30px}.videoPlayer_controls-seeker{width:70%;padding:0;margin:0;border:0}.videoPlayer_controls-volume{width:10%;display:flex;justify-content:center}.videoPlayer_controls-volume-volume{background-color:grey;display:none;width:20px;height:100px;writing-mode:bt-lr;-webkit-appearance:slider-vertical;position:absolute;bottom:70px;right:15%;margin:0;padding:0;border:0}.videoPlayer_controls-volume-mute{background:none}.videoPlayer_controls-volume-mute img{height:30px}.videoPlayer_controls-volume-mute:hover+.videoPlayer_controls-volume-volume,.videoPlayer_controls-volume-volume:hover{display:inline-block}.videoPlayer_controls-fullScreen{width:10%;background:none}.videoPlayer_controls-fullScreen img{height:30px}
+.videoPlayer_controls{align-self:flex-end;width:calc(100% - 20px);margin:10px;border-radius:20px;background-color:rgba(0,0,0,0.7);display:flex;justify-content:space-between;align-items:center}.videoPlayer_controls-togglePlay{background:none;width:8%}.videoPlayer_controls-togglePlay img{height:30px}.videoPlayer_controls-timer{width:5%}.videoPlayer_controls-seeker{width:73%;padding:0;margin:0;border:0}.videoPlayer_controls-volume{width:6%;display:flex;justify-content:center}.videoPlayer_controls-volume-volume{background-color:grey;display:none;width:20px;height:100px;writing-mode:bt-lr;-webkit-appearance:slider-vertical;position:absolute;bottom:90px;right:10%;margin:0;padding:0;border:0}.videoPlayer_controls-volume-mute{background:none}.videoPlayer_controls-volume-mute img{height:30px}.videoPlayer_controls-volume-mute:hover+.videoPlayer_controls-volume-volume,.videoPlayer_controls-volume-volume:hover{display:inline-block}.videoPlayer_controls-fullScreen{width:7%;background:none}.videoPlayer_controls-fullScreen img{height:30px}
 
 .videoPlayer{display:flex;flex-direction:column;justify-content:space-between;height:100vh}.videoPlayer_goBack{position:absolute;top:10px;left:20px;cursor:pointer;font-size:18px}.videoPlayer_name{margin:50px}.videoPlayer_player{width:100% !important;height:100% !important;position:fixed;top:0;z-index:-1}
 

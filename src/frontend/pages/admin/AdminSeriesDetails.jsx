@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import { deleteSeries, addSeason } from '../../redux/actions';
+
 import AdminSeasons from '../../components/admin/AdminSeasons';
 
 import '../../assets/style/pages/admin/AdminSeriesDetails.scss';
@@ -23,17 +25,12 @@ const AdminSeriesDetails = (props) => {
   } = serie;
 
   const handleDelete = () => {
-    axios({
-      method: 'delete',
-      url: `http://localhost:3000/series/${_id}`,
-    });
+    props.deleteSeries(_id);
+    props.history.push('/admin/series');
   };
 
   const handleAddSeason = () => {
-    axios({
-      method: 'post',
-      url: `http://localhost:3000/series/${_id}/seasons`,
-    });
+    props.addSeason(_id);
   };
 
   return (
@@ -70,4 +67,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminSeriesDetails);
+const mapDispatchToProps = { deleteSeries, addSeason };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminSeriesDetails);

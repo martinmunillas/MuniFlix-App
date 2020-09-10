@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import { editEpisode } from '../../redux/actions';
+
 import AdminEpisodesForm from '../../components/admin/AdminEpisodesForm';
 
 const AdminEditEpisode = (props) => {
@@ -14,15 +16,8 @@ const AdminEditEpisode = (props) => {
   const episode = episodes.find((episode) => episode._id === episodeId);
 
   const handleSubmit = (data) => {
-    try {
-      axios({
-        method: 'put',
-        url: `http://localhost:3000/series/episodes/${episode._id}`,
-        data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    props.editEpisode(data, episode._id);
+    props.history.push(`/admin/series/${serie._id}`)
   };
 
   return (
@@ -41,4 +36,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminEditEpisode);
+const mapDispatchToProps = {
+  editEpisode,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminEditEpisode);

@@ -11,22 +11,26 @@
 
 .videoPlayer_controls-togglePlay {
   background: none;
-  width: 10%;
+  width: 8%;
 }
 
 .videoPlayer_controls-togglePlay img {
   height: 30px;
 }
 
+.videoPlayer_controls-timer {
+  width: 5%;
+}
+
 .videoPlayer_controls-seeker {
-  width: 70%;
+  width: 73%;
   padding: 0;
   margin: 0;
   border: 0;
 }
 
 .videoPlayer_controls-volume {
-  width: 10%;
+  width: 6%;
   display: flex;
   justify-content: center;
 }
@@ -39,8 +43,8 @@
   writing-mode: bt-lr;
   -webkit-appearance: slider-vertical;
   position: absolute;
-  bottom: 70px;
-  right: 15%;
+  bottom: 90px;
+  right: 10%;
   margin: 0;
   padding: 0;
   border: 0;
@@ -60,7 +64,7 @@
 }
 
 .videoPlayer_controls-fullScreen {
-  width: 10%;
+  width: 7%;
   background: none;
 }
 

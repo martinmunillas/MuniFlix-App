@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import { deleteEpisode } from '../../redux/actions';
+
 const AdminEpisodeDetails = (props) => {
   const { serieId, episodeId } = props.match.params;
   const serie = props.series.find((serie) => serie._id === serieId);
@@ -14,13 +16,11 @@ const AdminEpisodeDetails = (props) => {
   const season = serie.seasons.find((season) => season._id === episode.season);
 
   const { _id, name, description, number } = episode;
-  const { seasonNumber } = season;
+  const seasonNumber = season.number;
 
   const handleDelete = () => {
-    axios({
-      method: 'delete',
-      url: `http://localhost:3000/series/episodes/${_id}`,
-    });
+    props.deleteEpisode(_id);
+    props.history.push(`/admin/series/${serie._id}`);
   };
 
   return (
@@ -47,4 +47,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminEpisodeDetails);
+const mapDispatchToProps = { deleteEpisode };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AdminEpisodeDetails);

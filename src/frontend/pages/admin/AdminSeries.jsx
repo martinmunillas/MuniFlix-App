@@ -2,16 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import { addSeries } from '../../redux/actions';
+
 import AdminMediaTemplate from '../../components/admin/AdminMediaTemplate';
 import AdminSeriesForm from '../../components/admin/AdminSeriesForm';
 
 const AdminSeries = (props) => {
   const handleSubmit = (data) => {
-    axios({
-      method: 'post',
-      url: 'http://localhost:3000/series',
-      data,
-    });
+    props.addSeries(data)
   };
   return (
     <AdminMediaTemplate
@@ -44,4 +42,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminSeries);
+const mapDispatchToProps = {
+  addSeries,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminSeries);

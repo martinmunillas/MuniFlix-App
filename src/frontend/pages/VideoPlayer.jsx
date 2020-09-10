@@ -16,6 +16,7 @@ class VideoPlayer extends React.Component {
     this.state = {
       playing: false,
       played: 0,
+      playedInSeconds: 0,
       volume: 1,
       isFullScreen: false,
     };
@@ -68,6 +69,7 @@ class VideoPlayer extends React.Component {
         this.setState({
           ...this.state,
           played: this.video.current.getCurrentTime() / this.state.duration,
+          playedInSeconds: this.video.current.getCurrentTime(),
         });
       }, 200);
     } else {

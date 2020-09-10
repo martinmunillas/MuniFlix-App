@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { deleteSeason } from '../../redux/actions';
 
 import '../../assets/style/components/admin/AdminSeasons.scss';
 
 import AdminEpisodes from './AdminEpisodes';
 
-const AdminSeasons = ({ season, serieId }) => {
+const AdminSeasons = (props) => {
+  const { season, serieId } = props;
+
   const handleDeleteSeason = () => {
-    axios({
-      method: 'delete',
-      url: `http://localhost:3000/series/${serieId}/seasons/${season._id}`,
-    });
+    props.deleteSeason(season._id, serieId);
   };
   return (
     <div className='adminSeasons'>
@@ -40,4 +42,8 @@ const AdminSeasons = ({ season, serieId }) => {
   );
 };
 
-export default AdminSeasons;
+const mapDispatchToProps = {
+  deleteSeason,
+};
+
+export default connect(null, mapDispatchToProps)(AdminSeasons);

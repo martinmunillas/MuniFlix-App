@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
+import { deleteMovie } from '../../redux/actions';
+
 import '../../assets/style/pages/admin/AdminMovieDetails.scss';
 
 const AdminMovieDetails = (props) => {
@@ -11,10 +13,8 @@ const AdminMovieDetails = (props) => {
   const { _id, name, cover, director, description, year, cast } = movie;
 
   const handleDelete = () => {
-    axios({
-      method: 'delete',
-      url: `http://localhost:3000/movies/${_id}`,
-    });
+    props.deleteMovie(_id)
+    props.history.push('/admin/movies')
   };
 
   return (
@@ -41,4 +41,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AdminMovieDetails);
+const mapDispatchToProps = { deleteMovie };
+
+export default connect(mapStateToProps, mapDispatchToProps)(AdminMovieDetails);
