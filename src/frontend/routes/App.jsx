@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import routes from './routes';
-import AdminRoute from '../components/admin/adminRoute';
+import AdminRoute from '../components/admin/AdminRoute';
 
 const App = () => {
   return (
