@@ -54,5 +54,9 @@
     "last 3 opera versions",
     "last 3 ios_saf versions",
     "last 3 safari versions"
-  ]
+  ],
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  }
 }
