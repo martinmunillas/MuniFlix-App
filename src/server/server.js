@@ -78,12 +78,12 @@ const renderApp = async (req, res) => {
   try {
     let movies = await axios({
       method: 'get',
-      url: `${URL}${PORT}/movies`,
+      url: `/movies`,
     });
 
     let series = await axios({
       method: 'get',
-      url: `${URL}${PORT}/series`,
+      url: `/series`,
     });
 
     movies = movies.data;
