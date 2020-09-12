@@ -19,10 +19,12 @@ class VideoPlayer extends React.Component {
       playedInSeconds: 0,
       volume: 1,
       isFullScreen: false,
+      watching: false,
     };
     this.container = React.createRef();
     this.video = React.createRef();
     this.intervalID = 0;
+    this.watchTimeOut = 0;
   }
 
   handleGoBack = () => {
@@ -65,6 +67,7 @@ class VideoPlayer extends React.Component {
         playing: true,
         duration: this.video.current.getDuration(),
       });
+
       this.intervalID = setInterval(() => {
         this.setState({
           ...this.state,
@@ -72,10 +75,16 @@ class VideoPlayer extends React.Component {
           playedInSeconds: this.video.current.getCurrentTime(),
         });
       }, 200);
+
+      this.watchTimeOut = setTimeout(() => {
+        this.setState({ ...this.state, watching: true });
+      }, 2000);
     } else {
       clearInterval(this.intervalID);
+      clearTimeout(this.watchTimeOut);
       this.setState({
         ...this.state,
+        watching: false,
         playing: false,
       });
     }
@@ -100,24 +109,49 @@ class VideoPlayer extends React.Component {
     });
   };
 
+  handleMouseMove = () => {
+    clearTimeout(this.watchTimeOut)
+    this.setState({ ...this.state, watching: false });
+    if (this.state.playing) {
+      this.watchTimeOut = setTimeout(() => {
+        this.setState({ ...this.state, watching: true });
+      }, 2000);
+    }
+  };
+
   render() {
-    const { playing, played, volume, duration, isFullScreen } = this.state;
+    const {
+      playing,
+      played,
+      volume,
+      duration,
+      isFullScreen,
+      watching,
+    } = this.state;
     return (
-      <div className='videoPlayer' ref={this.container}>
-        <p onClick={this.handleGoBack} className='videoPlayer_goBack'>
-          ⬅ Go Home
-        </p>
-        <h1 className='videoPlayer_name'>{this.media.name}</h1>
-        <VideoControls
-          {...this.state}
-          handler={{
-            play: this.handleTogglePlay,
-            fullScreen: this.handleFullScreen,
-            volume: this.handleVolume,
-            mute: this.handleMute,
-            seek: this.handleSeek,
-          }}
-        />
+      <div
+        className={`videoPlayer ${watching && 'watching'}`}
+        ref={this.container}
+        onMouseMove={this.handleMouseMove}
+      >
+        {!watching && (
+          <>
+            <p onClick={this.handleGoBack} className='videoPlayer_goBack'>
+              ⬅ Go Home
+            </p>
+            <h1 className='videoPlayer_name'>{this.media.name}</h1>
+            <VideoControls
+              {...this.state}
+              handler={{
+                play: this.handleTogglePlay,
+                fullScreen: this.handleFullScreen,
+                volume: this.handleVolume,
+                mute: this.handleMute,
+                seek: this.handleSeek,
+              }}
+            />
+          </>
+        )}
         <ReactPlayer
           ref={this.video}
           className='videoPlayer_player'
