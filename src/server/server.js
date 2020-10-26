@@ -6,7 +6,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { StaticRouter, Route } from 'react-router-dom';
+import { StaticRouter, Route, Switch } from 'react-router-dom';
 import helmet from 'helmet';
 import axios from 'axios';
 
@@ -109,13 +109,15 @@ const renderApp = async (req, res) => {
   const html = renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={{}}>
-        {routes.map((route) =>
-          !route.adminRoute ? (
-            <Route {...route} key={route.path || 404} />
-          ) : (
-            <AdminRoute {...route} key={route.path} />
-          )
-        )}
+        <Switch>
+          {routes.map((route) =>
+            !route.adminRoute ? (
+              <Route {...route} key={route.path || 404} />
+            ) : (
+              <AdminRoute {...route} key={route.path} />
+            )
+          )}
+        </Switch>
       </StaticRouter>
     </Provider>
   );
