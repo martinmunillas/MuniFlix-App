@@ -1,0 +1,23 @@
+
+$searchBar-height: 50px;
+.searchBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  input {
+    height: $searchBar-height;
+    width: 300px;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 15px 0 0 15px;
+    border: none;
+  }
+
+  button {
+    height: $searchBar-height;
+    width: 50px;
+    border-radius: 0 15px 15px 0;
+    background-color: grey;
+  }
+}

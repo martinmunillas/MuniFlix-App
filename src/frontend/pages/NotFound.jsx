@@ -8,9 +8,9 @@ const NotFound = () => {
     <div className='notFound'>
       <h1 className='notFound_number'>404</h1>
       <h2 className='notFound_text'>Not Found</h2>
-      <button className='notFound_button'>
-        <Link to='/'>Go to Home</Link>
-      </button>
+      <Link to='/'>
+        <button className='notFound_button'>⬅ Go to Home</button>
+      </Link>
     </div>
   );
 };

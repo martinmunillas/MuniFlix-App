@@ -1,0 +1,38 @@
+.mediaListItem {
+  width: 250px;
+  margin: 5px;
+  overflow: hidden;
+  transition: 450ms all;
+
+  img {
+    width: 100%;
+    height: 375px;
+    object-fit: cover;
+  }
+
+  &__image {
+    -webkit-box-shadow: 5px 5px 15px -2px #000000;
+    box-shadow: 5px 5px 15px -2px #000000;
+  }
+
+  &__details {
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: transparent;
+  }
+}
+
+.mediaListItem:hover ~ .mediaListItem {
+  -webkit-transform: translate3d(9px, 9px, 0);
+  transform: translate3d(9px, 9px, 0);
+}
+
+
+.mediaListItem:hover {
+    -webkit-transform: scale(1.04);
+            transform: scale(1.04);
+    opacity: 1;
+  }

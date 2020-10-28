@@ -4,6 +4,10 @@ import Home from '../pages/Home';
 import MoviePreview from '../pages/MoviePreview';
 import SeriesPreview from '../pages/SeriesPreview';
 import VideoPlayer from '../pages/VideoPlayer';
+import MovieList from '../pages/MovieList';
+import SerieList from '../pages/SerieList';
+import SearchPage from '../pages/SearchPage';
+
 import AdminSeries from '../pages/admin/AdminSeries';
 import AdminMovies from '../pages/admin/AdminMovies';
 import AdminHome from '../pages/admin/AdminHome';
@@ -14,6 +18,7 @@ import AdminEditSeries from '../pages/admin/AdminEditSeries';
 import AdminAddEpisodes from '../pages/admin/AdminAddEpisodes';
 import AdminEditEpisode from '../pages/admin/AdminEditEpisode';
 import AdminEpisodeDetails from '../pages/admin/AdminEpisodeDetails';
+
 import NotFound from '../pages/NotFound';
 
 const routes = [
@@ -21,6 +26,21 @@ const routes = [
     exact: true,
     path: '/',
     component: Home,
+  },
+  {
+    exact: true,
+    path: '/search',
+    component: SearchPage,
+  },
+  {
+    exact: true,
+    path: '/list/movies',
+    component: MovieList,
+  },
+  {
+    exact: true,
+    path: '/list/series',
+    component: SerieList,
   },
   {
     exact: true,
