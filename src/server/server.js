@@ -86,7 +86,10 @@ const renderApp = async (req, res) => {
       url: `${URL}/series`,
     });
 
-    movies = movies.data;
+    movies = movies.data.map(movie => ({
+      ...movie,
+      isMovie: true
+    }));
     series = series.data;
 
     initialState = {

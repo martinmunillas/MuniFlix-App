@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import SearchBar from '../components/SearchBar';
 
 import Header from '../components/Header';
 import MediaList from '../components/MediaList';
@@ -14,8 +15,9 @@ const SearchPage = (props) => {
 
   return (
     <>
-      <Header onSearch={onSearch} />
-      <MediaList media={searchQuerys(props.media, search)} />
+      <Header />
+      <SearchBar onSearch={onSearch}/>
+      <MediaList media={searchQuerys(props.media, search)} title={`Showing results for: ${search}`}  />
     </>
   );
 };

@@ -15,9 +15,15 @@ const MediaListItem = (props) => {
         <div className='mediaListItem__details'>
           <h3>{props.name}</h3>
           <h5>{props.director}</h5>
-          <p>
-            {props.year} | {props.duration}m
-          </p>
+          {props.isMovie ? (
+            <p>
+              {props.year} | {props.duration}m
+            </p>
+          ) : (
+            <p>
+              {props.startYear} - {props.finalYear}
+            </p>
+          )}
         </div>
       </Link>
     </li>

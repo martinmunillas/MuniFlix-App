@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import '../assets/style/components/Header.scss';
-import SearchBar from './SearchBar';
 
 const Header = (props) => {
   return (
@@ -11,7 +10,6 @@ const Header = (props) => {
         <Link to='/'>
           <img src='/images/MuniflixLogo.svg' alt='' className='logo' />
         </Link>
-        <SearchBar onSearch={props.onSearch}/>
         <ul className='menu'>
           <Link to='/'>
             <li>Home</li>
@@ -21,6 +19,11 @@ const Header = (props) => {
           </Link>
           <Link to='/list/series'>
             <li>Series</li>
+          </Link>
+          <Link to='/search'>
+            <li>
+              <img src='https://i.ibb.co/gvb0HpN/buscar.png' alt='Search' />
+            </li>
           </Link>
         </ul>
       </nav>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import '../assets/style/components/SearchBar.scss';
 
@@ -8,14 +8,16 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div className='searchBar'>
-      <input
-        type='text'
-        placeholder='Search by title, year, category, director, etc...'
-        onChange={handleChange}
-      />
-      <button>🔎</button>
-    </div>
+    <>
+      <div className='searchBar'>
+        <input
+          type='text'
+          placeholder='Search by title, year, category, director, etc...'
+          onChange={handleChange}
+        />
+        <button>🔎</button>
+      </div>
+    </>
   );
 };
 

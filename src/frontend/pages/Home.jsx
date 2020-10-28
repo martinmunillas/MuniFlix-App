@@ -7,9 +7,14 @@ import Header from '../components/Header';
 
 const Home = (props) => {
   const { movies, series } = props.media;
+
+  const onSearch = () => {
+    props.history.push('/search')
+  } 
+
   return (
     <>
-      <Header />
+      <Header onSearch={onSearch} />
       {movies.length > 0 && (
         <Carousel name='Movies'>
           {movies.map((movie) => (
