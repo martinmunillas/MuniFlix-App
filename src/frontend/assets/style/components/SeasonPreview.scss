@@ -1,12 +1,17 @@
 .seasonPreview {
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    background-color: #2e2e2e;
-    padding: 30px;
-    margin: 20px 0;
-}
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: 90%;
 
-.seasonPreview_number {
+  &_number {
     margin-bottom: 10px;
+  }
+
+  &_episodes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
 }

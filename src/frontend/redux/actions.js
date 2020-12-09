@@ -129,7 +129,7 @@ export const editEpisode = (payload, episodeId) => {
   return async (dispatch) => {
     await axios({
       method: 'put',
-      url: `/api/series/episodes/${episodeId}`,
+      url: `/api/series/episode/${episodeId}`,
       data: payload,
     });
     dispatch(getMedia());

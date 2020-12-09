@@ -43,13 +43,14 @@ class AdminEpisodesForm extends React.Component {
   };
 
   render() {
-    const { name, description, number, src } = this.state.form;
+    const { name, description, number, src, cover } = this.state.form;
 
     const {
       nameError,
       descriptionError,
       numberError,
       srcError,
+      coverError,
     } = this.state.errors;
 
     return (
@@ -91,6 +92,15 @@ class AdminEpisodesForm extends React.Component {
           value={src}
         />
         {srcError && <label className='formAlert'>{srcError}</label>}
+
+        <label>Cover</label>
+        <input
+          type='text'
+          name='cover'
+          onChange={this.handleChange}
+          value={cover}
+        />
+        {srcError && <label className='formAlert'>{coverError}</label>}
 
         <button type='submit'>Publish</button>
       </form>

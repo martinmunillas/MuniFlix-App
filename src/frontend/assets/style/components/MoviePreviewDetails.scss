@@ -4,24 +4,23 @@
   flex-direction: column;
   justify-content: center;
   margin: 0 60px;
-}
+  &_goHome {
+    position: absolute;
+    top: 120px;
+    left: 30px;
+  }
 
-.moviePreviewDetails_goHome {
-  position: absolute;
-  top: 120px;
-  left: 30px;
-}
+  &_title {
+    font-size: 50px;
+    margin: 10px 0;
+  }
 
-.moviePreviewDetails_title {
-  font-size: 50px;
-  margin: 10px 0;
-}
+  &_description {
+    margin: 10px 0;
+  }
 
-.moviePreviewDetails_description {
-  margin: 10px 0;
-}
-
-.moviePreviewDetails_play {
-  display: flex;
-  justify-content: flex-end;
+  &_play {
+    display: flex;
+    justify-content: flex-end;
+  }
 }

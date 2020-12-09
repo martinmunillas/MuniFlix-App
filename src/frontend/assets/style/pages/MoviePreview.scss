@@ -3,6 +3,13 @@
 .moviePreview {
   display: flex;
   justify-content: space-between;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 60px;
+  }
 }
 .moviePreviewImage {
   max-width: 100%;
