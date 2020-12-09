@@ -1,3 +1,12 @@
+@import '../Vars.scss';
+
 .moviePreview {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
+}
+.moviePreviewImage {
+  max-width: 100%;
+  max-height: calc(100vh - 40px - 100px);
+  border-radius: 10px;
+  margin: 20px;
 }

@@ -15,7 +15,6 @@ const SearchBar = (props) => {
           placeholder='Search by title, year, category, director, etc...'
           onChange={handleChange}
         />
-        <button>🔎</button>
       </div>
     </>
   );

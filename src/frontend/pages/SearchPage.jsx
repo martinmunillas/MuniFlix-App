@@ -10,14 +10,18 @@ const SearchPage = (props) => {
   const [search, setSearch] = useState('');
 
   const onSearch = (query) => {
-      setSearch(query);
+    setSearch(query);
   };
 
   return (
     <>
       <Header />
-      <SearchBar onSearch={onSearch}/>
-      <MediaList media={searchQuerys(props.media, search)} title={`Showing results for: ${search}`}  />
+      <h1 style={{ textAlign: 'center', margin: '20px 0' }}>Search</h1>
+      <SearchBar onSearch={onSearch} />
+      <MediaList
+        media={searchQuerys(props.media, search)}
+        title={`Showing results for: ${search}`}
+      />
     </>
   );
 };

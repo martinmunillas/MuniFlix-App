@@ -1,5 +1,7 @@
+@import '../Vars.scss';
 
 $searchBar-height: 50px;
+
 .searchBar {
   display: flex;
   justify-content: center;
@@ -7,17 +9,9 @@ $searchBar-height: 50px;
   flex-direction: row;
   input {
     height: $searchBar-height;
-    width: 300px;
-    margin: 20px 0;
+    width: 60%;
     padding: 15px;
-    border-radius: 15px 0 0 15px;
+    border-radius: 15px;
     border: none;
-  }
-
-  button {
-    height: $searchBar-height;
-    width: 50px;
-    border-radius: 0 15px 15px 0;
-    background-color: grey;
   }
 }

@@ -7,7 +7,7 @@ const SerieList = (props) => {
   return (
     <>
       <Header />
-      <MediaList media={props.series} />
+      <MediaList media={props.series} title='Series' centeredTitle />
     </>
   );
 };

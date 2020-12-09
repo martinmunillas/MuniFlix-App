@@ -7,21 +7,19 @@
   list-style: none;
   outline: none;
   text-decoration: none;
-  color: #ffffff
+  color: $lightGrey;
 }
 
 body {
-  background: #080808;
+  background: $black;
   font-family: Arial, Helvetica, sans-serif;
-  color: #ffffff;
+  color: $lightGrey;
   min-height: 100vh;
 }
 
 button {
-  background-color: #e50913;
-  border: none;
-  border-radius: 50px;
-  color: white;
+  border-radius: 10px;
+  color: $lightGrey;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -30,49 +28,55 @@ button {
   letter-spacing: 1px;
   margin: 20px 0px;
   padding: 10px;
+  background: transparent;
+  border: 3px solid $darkGrey;
+  min-width: 150px;
 }
 
 .button2 {
-  background: transparent;
-  border: 3px solid white;
+  background-color: $red;
+  border: none;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
   background: transparent;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $mainColor;
+  background: $darkGrey;
   border-radius: 10px;
 }
 
+::-webkit-scrollbar-corner {
+  width: 0px;
+}
 input {
   margin: 10px 0;
   height: 50px;
-  border-radius: 50px;
-  border: 2px solid #ffffff;
-  background-color: #111;
+  border-radius: 10px;
+  background-color: $darkGrey;
   color: #ffffff;
   padding: 20px;
+  border: none;
 }
 
 textarea {
   margin: 10px 0;
   height: 200px;
   border-radius: 20px 20px 0px 20px;
-  border: 2px solid #ffffff;
-  background-color: #111;
+  background-color: $darkGrey;
   color: #ffffff;
   padding: 20px;
+  border: none;
 }
 
 .unselected {
-  background-color: $mainColor_darker
+  background-color: $red;
 }
 
 .formAlert {
-  color: #e50913;
+  color: $red;
 }
 
 .mV {

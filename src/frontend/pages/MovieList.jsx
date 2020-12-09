@@ -7,7 +7,7 @@ const MovieList = (props) => {
   return (
     <>
       <Header />
-      <MediaList media={props.movies} isMovie={true} />
+      <MediaList media={props.movies} isMovie={true} title='Movies' centeredTitle />
     </>
   );
 };

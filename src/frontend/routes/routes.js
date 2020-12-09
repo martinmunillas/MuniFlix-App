@@ -20,8 +20,14 @@ import AdminEditEpisode from '../pages/admin/AdminEditEpisode';
 import AdminEpisodeDetails from '../pages/admin/AdminEpisodeDetails';
 
 import NotFound from '../pages/NotFound';
+import SignIn from '../pages/SignIn';
 
 const routes = [
+  {
+    exact: true,
+    path: '/sign-in',
+    component: SignIn
+  },
   {
     exact: true,
     path: '/',

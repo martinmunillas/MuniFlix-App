@@ -9,16 +9,16 @@ export const getMedia = () => {
   return async (dispatch) => {
     let movies = await axios({
       method: 'get',
-      url: '/movies',
+      url: '/api/movies',
     });
 
     let series = await axios({
       method: 'get',
-      url: '/series',
+      url: '/api/series',
     });
 
-    movies = movies.data;
-    series = series.data;
+    movies = movies.data.data;
+    series = series.data.data;
 
     const state = {
       media: {
@@ -34,7 +34,7 @@ export const addMovie = (payload) => {
   return async (dispatch) => {
     await axios({
       method: 'post',
-      url: '/movies',
+      url: '/api/movies',
       data: payload,
     });
     dispatch(getMedia());
@@ -45,7 +45,7 @@ export const updateMovie = (payload, movieId) => {
   return async (dispatch) => {
     await axios({
       method: 'put',
-      url: `/movies/${movieId}`,
+      url: `/api/movies/${movieId}`,
       data: payload,
     });
     dispatch(getMedia());
@@ -56,7 +56,7 @@ export const deleteMovie = (movieId) => {
   return async (dispatch) => {
     await axios({
       method: 'delete',
-      url: `/movies/${movieId}`,
+      url: `/api/movies/${movieId}`,
     });
     dispatch(getMedia());
   };
@@ -66,7 +66,7 @@ export const addSeries = (payload) => {
   return async (dispatch) => {
     await axios({
       method: 'post',
-      url: '/series',
+      url: '/api/series',
       data: payload,
     });
     dispatch(getMedia());
@@ -77,7 +77,7 @@ export const updateSeries = (payload, seriesId) => {
   return async (dispatch) => {
     await axios({
       method: 'put',
-      url: `/series/${seriesId}`,
+      url: `/api/series/${seriesId}`,
       data: payload,
     });
     dispatch(getMedia());
@@ -88,7 +88,7 @@ export const deleteSeries = (serieId) => {
   return async (dispatch) => {
     await axios({
       method: 'delete',
-      url: `/series/${serieId}`,
+      url: `/api/series/${serieId}`,
     });
     dispatch(getMedia());
   };
@@ -98,7 +98,7 @@ export const addSeason = (serieId) => {
   return async (dispatch) => {
     await axios({
       method: 'post',
-      url: `/series/${serieId}/seasons`,
+      url: `/api/series/${serieId}/seasons`,
     });
     dispatch(getMedia());
   };
@@ -108,7 +108,7 @@ export const deleteSeason = (seasonId, serieId) => {
   return async (dispatch) => {
     await axios({
       method: 'delete',
-      url: `/series/${serieId}/seasons/${seasonId}`,
+      url: `/api/series/${serieId}/seasons/${seasonId}`,
     });
     dispatch(getMedia());
   };
@@ -118,7 +118,7 @@ export const addEpisode = (payload) => {
   return async (dispatch) => {
     await axios({
       method: 'post',
-      url: '/series/episodes',
+      url: '/api/series/episodes',
       data: payload,
     });
     dispatch(getMedia());
@@ -129,7 +129,7 @@ export const editEpisode = (payload, episodeId) => {
   return async (dispatch) => {
     await axios({
       method: 'put',
-      url: `/series/episodes/${episodeId}`,
+      url: `/api/series/episodes/${episodeId}`,
       data: payload,
     });
     dispatch(getMedia());
@@ -140,7 +140,7 @@ export const deleteEpisode = (episodeId) => {
   return async (dispatch) => {
     await axios({
       method: 'delete',
-      url: `/series/episodes/${episodeId}`,
+      url: `/api/series/episodes/${episodeId}`,
     });
     dispatch(getMedia());
   };

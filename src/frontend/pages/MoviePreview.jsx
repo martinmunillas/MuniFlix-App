@@ -2,18 +2,21 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import MoviePreviewDetails from '../components/MoviePreviewDetails';
-import MoviePreviewImage from '../components/MoviePreviewImage';
+import Header from '../components/Header';
 
-import '../assets/style/pages/MoviePreview.scss'
+import '../assets/style/pages/MoviePreview.scss';
 
 const MoviePreview = (props) => {
   const { movieId } = props.match.params;
   const movie = props.movies.filter((movie) => movie._id == movieId)[0];
   return (
-    <div className="moviePreview">
-      <MoviePreviewDetails movie={movie} />
-      <MoviePreviewImage movie={movie} />
-    </div>
+    <>
+      <Header />
+      <div className='moviePreview'>
+        <MoviePreviewDetails movie={movie} />
+        <img src={movie.cover} alt='' className='moviePreviewImage' />
+      </div>
+    </>
   );
 };
 

@@ -3,14 +3,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 40px 0 40px;
-  min-height: 100vh;
+  margin: 0 60px;
 }
 
 .moviePreviewDetails_goHome {
-  width: 20%;
-  border-radius: 20px;
-  height: 50px;
+  position: absolute;
+  top: 120px;
+  left: 30px;
 }
 
 .moviePreviewDetails_title {
@@ -22,18 +21,7 @@
   margin: 10px 0;
 }
 
-.moviePreviewDetails_details {
-  margin: 10px 0;
-  display: flex;
-}
-
-.moviePreviewDetails_details li {
-  margin: 0 10px 0 0;
-  display: flex;
-}
-
 .moviePreviewDetails_play {
-  width: 20%;
-  border: 3px solid white;
-  background-color: transparent;
+  display: flex;
+  justify-content: flex-end;
 }

@@ -2,8 +2,8 @@
   overflow: hidden;
   position: relative;
   display: inline-block;
-  width: 200px;
-  height: 300px;
+  width: 210px;
+  height: 310px;
   margin-right: 10px;
   font-size: 20px;
   cursor: pointer;
@@ -11,6 +11,7 @@
   -webkit-transform-origin: center left;
   transform-origin: center left;
   background-size: cover;
+  border-radius: 7px;
 }
 
 .carousel-item:hover ~ .carousel-item {
@@ -27,11 +28,7 @@
 
 .carousel-item__details {
   align-items: flex-start;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.9) 0%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
   bottom: 0;
   display: flex;
   font-size: 10px;

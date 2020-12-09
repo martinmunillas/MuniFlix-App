@@ -6,7 +6,7 @@ import '../assets/style/components/MediaList.scss';
 
 const MediaList = (props) => {
   return (
-    <div className='mediaList'>
+    <div className={`mediaList ${props.centeredTitle ? 'centered' : null}`}>
       <h1>{props.title}</h1>
       <ul>
         {props.media.map((item, i) => (

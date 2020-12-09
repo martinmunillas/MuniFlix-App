@@ -2,17 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SeriesPreviewDetails from '../components/SeriesPreviewDetails';
-import SeriesPreviewImage from '../components/SeriesPreviewImage';
 
-import '../assets/style/pages/MoviePreview.scss'
+import '../assets/style/pages/MoviePreview.scss';
 
 const SeriesPreview = (props) => {
   const { seriesId } = props.match.params;
   const serie = props.series.filter((serie) => serie._id == seriesId)[0];
   return (
-    <div className="moviePreview">
+    <div className='moviePreview'>
       <SeriesPreviewDetails serie={serie} />
-      <SeriesPreviewImage serie={serie} />
+      <img src={serie.cover} alt='' className='moviePreviewImage' />
     </div>
   );
 };

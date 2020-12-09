@@ -6,22 +6,20 @@ import '../assets/style/components/MoviePreviewDetails.scss';
 const MoviePreviewDetails = ({ movie }) => {
   return (
     <section className='moviePreviewDetails'>
-      <Link to='/'>
-        <button className='moviePreviewDetails_goHome'>⬅ Go Home</button>
+      <Link to='/' className='moviePreviewDetails_goHome'>
+        ⬅ Go Home
       </Link>
       <h1 className='moviePreviewDetails_title'>{movie.name}</h1>
+      <p>
+        {movie.director} | {movie.clasification != 0 ? '+' + movie.clasification : 'All Ages'} |{' '}
+        {movie.year} | {movie.duration} minutes
+      </p>
+      <br />
+      <p>{movie.cast.join(', ')}</p>
+      <br />
       <p className='moviePreviewDetails_description'>{movie.description}</p>
-      <ul className='moviePreviewDetails_details'>
-        <li className='moviePreviewDetails_details-clasification'>
-          {movie.clasification != 0 ? '+' + movie.clasification : 'All Ages'}
-        </li>
-        <li className='moviePreviewDetails_details-year'>{movie.year}</li>
-        <li className='moviePreviewDetails_details-duration'>
-          {movie.duration} minutes
-        </li>
-      </ul>
-      <Link to={`/watch/${movie._id}`}>
-        <button className='moviePreviewDetails_play'>Play ▶</button>
+      <Link to={`/watch/${movie._id}`} className='moviePreviewDetails_play'>
+        <button>Play ▶</button>
       </Link>
     </section>
   );
