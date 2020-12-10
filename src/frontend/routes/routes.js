@@ -21,6 +21,8 @@ import AdminEpisodeDetails from '../pages/admin/AdminEpisodeDetails';
 
 import NotFound from '../pages/NotFound';
 import SignIn from '../pages/SignIn';
+import AdminCreateMovie from '../pages/admin/AdminCreateMovie';
+import AdminCreateSeries from '../pages/admin/AdminCreateSeries';
 
 const routes = [
   {
@@ -77,8 +79,20 @@ const routes = [
   },
   {
     exact: true,
+    path: '/admin/movies/add',
+    component: AdminCreateMovie,
+    adminRoute: true,
+  },
+  {
+    exact: true,
     path: '/admin/series',
     component: AdminSeries,
+    adminRoute: true,
+  },
+  {
+    exact: true,
+    path: '/admin/series/add',
+    component: AdminCreateSeries,
     adminRoute: true,
   },
   {

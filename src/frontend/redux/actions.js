@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookie from 'js-cookie';
 
 const setState = (payload) => ({
   type: 'SET_STATE',
@@ -36,6 +37,9 @@ export const addMovie = (payload) => {
       method: 'post',
       url: '/api/movies',
       data: payload,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -47,6 +51,9 @@ export const updateMovie = (payload, movieId) => {
       method: 'put',
       url: `/api/movies/${movieId}`,
       data: payload,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -57,6 +64,9 @@ export const deleteMovie = (movieId) => {
     await axios({
       method: 'delete',
       url: `/api/movies/${movieId}`,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -68,6 +78,9 @@ export const addSeries = (payload) => {
       method: 'post',
       url: '/api/series',
       data: payload,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -79,6 +92,9 @@ export const updateSeries = (payload, seriesId) => {
       method: 'put',
       url: `/api/series/${seriesId}`,
       data: payload,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -89,6 +105,9 @@ export const deleteSeries = (serieId) => {
     await axios({
       method: 'delete',
       url: `/api/series/${serieId}`,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -99,6 +118,9 @@ export const addSeason = (serieId) => {
     await axios({
       method: 'post',
       url: `/api/series/${serieId}/seasons`,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -109,6 +131,9 @@ export const deleteSeason = (seasonId, serieId) => {
     await axios({
       method: 'delete',
       url: `/api/series/${serieId}/seasons/${seasonId}`,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -120,6 +145,9 @@ export const addEpisode = (payload) => {
       method: 'post',
       url: '/api/series/episodes',
       data: payload,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -131,6 +159,9 @@ export const editEpisode = (payload, episodeId) => {
       method: 'put',
       url: `/api/series/episode/${episodeId}`,
       data: payload,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
   };
@@ -141,7 +172,34 @@ export const deleteEpisode = (episodeId) => {
     await axios({
       method: 'delete',
       url: `/api/series/episodes/${episodeId}`,
+      headers: {
+        Authorization: `Bearer ${Cookie.get('token')}`,
+      },
     });
     dispatch(getMedia());
+  };
+};
+
+export const signIn = (user) => {
+  return async (dispatch) => {
+    try {
+      const petition = await axios({
+        method: 'post',
+        url: `/api/auth/sign-in`,
+        auth: {
+          username: user.email,
+          password: user.password,
+        },
+      });
+
+      document.cookie = `email=${petition.data.user.email}`;
+      document.cookie = `id=${petition.data.user.id}`;
+      document.cookie = `token=${petition.data.token}`;
+
+      window.location.href = '/admin';
+    } catch (error) {
+      console.log(error);
+      alert('Unauthorized');
+    }
   };
 };

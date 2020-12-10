@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import axios from 'axios';
 
 import { deleteSeries, addSeason } from '../../redux/actions';
 
@@ -12,17 +11,7 @@ import '../../assets/style/pages/admin/AdminSeriesDetails.scss';
 const AdminSeriesDetails = (props) => {
   const { serieId } = props.match.params;
   const serie = props.series.find((serie) => serie._id == serieId);
-  const {
-    _id,
-    name,
-    cover,
-    director,
-    description,
-    startYear,
-    finalYear,
-    cast,
-    seasons,
-  } = serie;
+  const { _id, name, cover, director, description, startYear, finalYear, cast, seasons } = serie;
 
   const handleDelete = () => {
     props.deleteSeries(_id);
@@ -44,11 +33,13 @@ const AdminSeriesDetails = (props) => {
           </p>
           <p>{description}</p>
           <p>{cast}</p>
-          <button className='button2'>
-            <Link to={`/admin/series/${_id}/edit`}>Edit</Link>
-          </button>
+          <Link to={`/admin/series/${_id}/edit`}>
+            <button>Edit</button>
+          </Link>
 
-          <button onClick={handleDelete}>Delete</button>
+          <button onClick={handleDelete} className='button2'>
+            Delete
+          </button>
         </div>
       </div>
       <div className='adminSeriesDetails_seasons'>

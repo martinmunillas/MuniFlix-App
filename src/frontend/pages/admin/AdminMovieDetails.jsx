@@ -13,8 +13,8 @@ const AdminMovieDetails = (props) => {
   const { _id, name, cover, director, description, year, cast } = movie;
 
   const handleDelete = () => {
-    props.deleteMovie(_id)
-    props.history.push('/admin/movies')
+    props.deleteMovie(_id);
+    props.history.push('/admin/movies');
   };
 
   return (
@@ -26,10 +26,12 @@ const AdminMovieDetails = (props) => {
         <h3>{director}</h3>
         <p>{description}</p>
         <p>{cast.join(', ')}</p>
-        <button className='button2'>
-          <Link to={`/admin/movies/${_id}/edit`}>Edit</Link>
+        <Link to={`/admin/movies/${_id}/edit`}>
+          <button>Edit</button>
+        </Link>
+        <button onClick={handleDelete} className='button2'>
+          Delete
         </button>
-        <button onClick={handleDelete}>Delete</button>
       </div>
     </div>
   );

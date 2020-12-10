@@ -1,5 +1,5 @@
 @import '../../Vars.scss';
 
 .adminLayout_content {
-    padding-left: $adminMenu_width
+  margin-left: $adminMenu_width + $adminMenu_margin;
 }

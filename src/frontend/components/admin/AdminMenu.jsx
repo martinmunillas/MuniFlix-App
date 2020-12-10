@@ -1,24 +1,41 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import '../../assets/style/components/admin/AdminMenu.scss';
 
-const AdminMenu = () => {
+const AdminMenu = (props) => {
+  const pages = {
+    home: '/admin',
+    movies: '/admin/movies',
+    series: '/admin/series',
+  };
+
+  const getClasses = (page) => {
+    let className = 'adminMenu_item';
+    if (
+      props.location.pathname === pages[page] ||
+      (props.location.pathname.startsWith(pages[page]) && pages[page] !== pages['home'])
+    ) {
+      className += `--active`;
+    }
+    return className;
+  };
+
   return (
-    <nav className="adminMenu" >
-        <Link to="/admin" className="adminMenu_item">
-          Home
-        </Link>
+    <nav className='adminMenu'>
+      <Link to='/admin' className={getClasses('home')}>
+        Home
+      </Link>
 
-        <Link to="/admin/movies" className="adminMenu_item">
-          Movies
-        </Link>
+      <Link to='/admin/movies' className={getClasses('movies')}>
+        Movies
+      </Link>
 
-        <Link to="/admin/series" className="adminMenu_item">
-          Series
-        </Link>
+      <Link to='/admin/series' className={getClasses('series')}>
+        Series
+      </Link>
     </nav>
   );
 };
 
-export default AdminMenu;
+export default withRouter(AdminMenu);

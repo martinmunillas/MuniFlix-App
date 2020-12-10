@@ -1,18 +1,27 @@
 @import '../../Vars.scss';
 
 .adminMenu {
-    width: $adminMenu_width;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    background-color: $red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 30px;
-}
+  width: $adminMenu_width;
+  margin: $adminMenu_margin;
+  height: calc(100vh - 40px);
+  position: fixed;
+  left: 0;
+  background-color: $darkGrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 100px 30px;
+  border-radius: 20px;
 
-.adminMenu_item {
+  &_item {
     padding: 20px;
     font-weight: 600;
+    &--active {
+      padding: 20px;
+      font-weight: 600;
+      background-color: $red;
+      border-radius: 10px;
+      color: #fff;
+    }
+  }
 }

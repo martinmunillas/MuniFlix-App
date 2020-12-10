@@ -1,10 +1,12 @@
 import React from 'react';
 
+import '../../assets/style/components/admin/AdminMediaList.scss';
+
 import AdminMediaListItem from './AdminMediaListItem';
 
 const AdminMediaList = ({ media, mediaPath }) => {
   return (
-    <ul>
+    <ul className='adminMediaList'>
       {media.map((item) => (
         <AdminMediaListItem {...item} mediaPath={mediaPath} key={item._id} />
       ))}

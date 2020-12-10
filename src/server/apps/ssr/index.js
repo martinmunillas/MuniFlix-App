@@ -8,6 +8,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { StaticRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 
 //frontend
 import reducer from '../../../frontend/redux/reducers';
@@ -20,7 +21,7 @@ import getManifest from './utils/middlewares/getManifest';
 const router = express.Router();
 dotenv.config();
 
-const { PORT, ENV, URL } = process.env;
+const { PORT, ENV, URL, AUTH_JWT } = process.env;
 
 router.use('/images', express.static(__dirname + '/static'));
 
@@ -65,6 +66,7 @@ const setResponse = (html, preloadedState, manifest) => {
 const renderApp = async (req, res) => {
   let initialState;
   try {
+    const { email, id } = req.cookies;
     let movies = await axios({
       method: 'get',
       url: `${URL}/api/movies`,
@@ -82,6 +84,7 @@ const renderApp = async (req, res) => {
     series = series.data.data;
 
     initialState = {
+      user: { email, id },
       media: {
         movies,
         series,
@@ -90,6 +93,7 @@ const renderApp = async (req, res) => {
   } catch (error) {
     console.log(error);
     initialState = {
+      user: {},
       media: {
         movies: [],
         series: [],
@@ -116,6 +120,20 @@ const renderApp = async (req, res) => {
   res.send(setResponse(html, preloadedState, req.hashManifest));
 };
 
-router.get('*', renderApp);
+const checkAuth = async (req, res, next) => {
+  if (req.url.startsWith('/admin')) {
+    try {
+      await jwt.verify(req.cookies.token, AUTH_JWT);
+      next();
+    } catch (error) {
+      console.log(error);
+      res.redirect('/sign-in');
+    }
+  } else {
+    next();
+  }
+};
+
+router.get('*', [checkAuth, renderApp]);
 
 export default router;

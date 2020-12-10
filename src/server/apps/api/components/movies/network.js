@@ -1,8 +1,11 @@
-const express = require('express');
+import express from 'express';
+import passport from 'passport';
 
-const service = require('./service');
+import service from './service';
 
 const router = express.Router();
+
+require('../../utils/auth/jwt');
 
 router.get('/', async (req, res, next) => {
   try {
@@ -17,7 +20,7 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next) => {
+router.post('/', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
   try {
     const movie = req.body;
 
@@ -31,7 +34,7 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
   try {
     const { id } = req.params;
 
@@ -47,7 +50,7 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete('/:id', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
   try {
     const { id } = req.params;
 

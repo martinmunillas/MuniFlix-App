@@ -1,13 +1,13 @@
 require('dotenv').config();
 
-const movies = require('../components/movies/network');
-const series = require('../components/series/network');
-
-const { APP_PATH } = process.env
+import movies from '../components/movies/network';
+import series from '../components/series/network';
+import auth from '../components/auth/network';
 
 const routes = (app) => {
   app.use('/movies', movies);
   app.use('/series', series);
+  app.use('/auth', auth);
 };
 
 module.exports = routes;
