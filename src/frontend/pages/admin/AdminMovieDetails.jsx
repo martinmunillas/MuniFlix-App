@@ -19,13 +19,13 @@ const AdminMovieDetails = (props) => {
 
   return (
     <div className='adminMovieDetails'>
-      <img src={cover} alt={name} />
+      <img src={cover} alt={name} className='adminMovieDetails__image' />
       <div>
         <h1>{name}</h1>
         <p>{year}</p>
         <h3>{director}</h3>
-        <p>{description}</p>
         <p>{cast.join(', ')}</p>
+        <p>{description}</p>
         <Link to={`/admin/movies/${_id}/edit`}>
           <button>Edit</button>
         </Link>

@@ -25,14 +25,14 @@ const AdminSeriesDetails = (props) => {
   return (
     <div className='adminSeriesDetails'>
       <div className='adminSeriesDetails_serie'>
-        <img src={cover} alt={name} />
+        <img src={cover} alt={name} className='adminMovieDetails__image' />
         <div className='adminSeriesDetails_serie-info'>
           <h1>{name}</h1>
           <p>
             {startYear} - {finalYear}
           </p>
+          <p>{cast.join(', ')}</p>
           <p>{description}</p>
-          <p>{cast}</p>
           <Link to={`/admin/series/${_id}/edit`}>
             <button>Edit</button>
           </Link>

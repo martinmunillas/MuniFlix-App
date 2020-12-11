@@ -37,6 +37,9 @@
   width: 6%;
   display: flex;
   justify-content: center;
+  button {
+    min-width: 100%;
+  }
 }
 
 .videoPlayer_controls-volume-volume {
@@ -47,8 +50,8 @@
   writing-mode: bt-lr;
   -webkit-appearance: slider-vertical;
   position: absolute;
-  bottom: 90px;
-  right: 10%;
+  bottom: 95px;
+  right: 12.8%;
   margin: 0;
   padding: 0;
   border: 0;
@@ -72,6 +75,6 @@
   background: none;
 }
 
-.videoPlayer_controls-fullScreen img{
+.videoPlayer_controls-fullScreen img {
   height: 30px;
 }
