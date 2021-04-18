@@ -9,7 +9,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 require('dotenv').config();
 
 const isDev = process.env.ENV === 'development';
-const entry = ['./src/frontend/index.js'];
+const entry = ['./build/frontend/index.js'];
 
 if (isDev) {
   entry.push(
@@ -21,7 +21,7 @@ module.exports = {
   entry,
   mode: process.env.ENV,
   output: {
-    path: path.resolve(__dirname, 'src/server/apps/ssr/public'),
+    path: path.join(__dirname, 'build/server/apps/ssr/public'),
     filename: isDev ? 'assets/app.js' : 'assets/app-[hash].js',
     publicPath: '/',
   },
@@ -38,12 +38,6 @@ module.exports = {
         },
       },
       {
-        test: /\.html$/,
-        use: {
-          loader: 'html-loader',
-        },
-      },
-      {
         test: /\.(s*)css$/,
         use: [
           {
@@ -56,25 +50,25 @@ module.exports = {
     ],
   },
   plugins: [
-    isDev ? new webpack.HotModuleReplacementPlugin() : () => {},
+    isDev ? new webpack.HotModuleReplacementPlugin() : () => { },
     isDev
-      ? () => {}
+      ? () => { }
       : new CompressionWebpackPlugin({
-          test: /\.js$|\.css$/,
-          filename: '[path].gz',
-        }),
+        test: /\.js$|\.css$/,
+        filename: '[path].gz',
+      }),
     new MiniCssExtractPlugin({
       filename: isDev ? 'assets/app.css' : 'assets/app-[hash].css',
     }),
-    isDev ? () => {} : new ManifestPlugin(),
+    isDev ? () => { } : new ManifestPlugin(),
     isDev
-      ? () => {}
+      ? () => { }
       : new CleanWebpackPlugin({
-          cleanOnceBeforeBuildPatterns: path.resolve(
-            __dirname,
-            'src/server/public'
-          ),
-        }),
+        cleanOnceBeforeBuildPatterns: path.resolve(
+          __dirname,
+          'src/server/public'
+        ),
+      }),
   ],
   optimization: {
     minimize: true,
